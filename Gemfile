@@ -15,8 +15,10 @@ gem 'haml-rails'
 gem 'high_voltage'
 gem 'pg'
 gem 'simple_form'
+
 gem 'omniauth'
 gem 'omniauth-angellist'
+
 
 
 

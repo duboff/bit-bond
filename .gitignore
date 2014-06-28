@@ -29,7 +29,9 @@ db/*.sqlite3
 .sass-cache
 /config/config.yml
 /config/database.yml
+<<<<<<< HEAD
 /config/secrets.yml
+
 /coverage.data
 /coverage/
 /db/*.javadb/
@@ -77,4 +79,6 @@ pickle-email-*.html
 
 # Environment files that may contain sensitive data
 .env
+
 .powenv
+
