@@ -1,5 +1,5 @@
 class AddLoansToCompanies < ActiveRecord::Migration
   def change
-    add_reference :companies, :company, index: true
+    add_reference :loans, :company, index: true
   end
 end

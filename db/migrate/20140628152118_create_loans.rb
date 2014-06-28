@@ -4,7 +4,6 @@ class CreateLoans < ActiveRecord::Migration
       t.integer :amount
       t.integer :term
       t.float :coupon
-
       t.timestamps
     end
   end

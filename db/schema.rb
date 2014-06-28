@@ -20,10 +20,10 @@ ActiveRecord::Schema.define(version: 20140628152142) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "company_id"
+    t.integer  "user_id"
   end
 
-  add_index "companies", ["company_id"], name: "index_companies_on_company_id", using: :btree
+  add_index "companies", ["user_id"], name: "index_companies_on_user_id", using: :btree
 
   create_table "loans", force: true do |t|
     t.integer  "amount"
@@ -31,7 +31,10 @@ ActiveRecord::Schema.define(version: 20140628152142) do
     t.float    "coupon"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "company_id"
   end
+
+  add_index "loans", ["company_id"], name: "index_loans_on_company_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -49,11 +52,9 @@ ActiveRecord::Schema.define(version: 20140628152142) do
     t.string   "name"
     t.string   "provider"
     t.string   "uid"
-    t.integer  "user_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-  add_index "users", ["user_id"], name: "index_users_on_user_id", using: :btree
 
 end

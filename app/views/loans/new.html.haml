@@ -1,0 +1,13 @@
+.authform
+  = form_for(@loan, html: { :role => 'form'}) do |f|
+    %h3 Create Loan
+    .form-group
+      = f.label :amount
+      = f.text_field :amount, :autofocus => true, class: 'form-control'
+    .form-group
+      = f.label :term
+      = f.text_field :term, class: 'form-control'
+    .form-group
+      = f.label :coupon
+      = f.text_field :coupon, class: 'form-control'
+    = f.submit 'Create Loan', class: 'btn btn-success'

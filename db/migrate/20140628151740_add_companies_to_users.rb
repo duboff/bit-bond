@@ -1,5 +1,5 @@
 class AddCompaniesToUsers < ActiveRecord::Migration
   def change
-    add_reference :users, :user, index: true
+    add_reference :companies, :user, index: true
   end
 end
