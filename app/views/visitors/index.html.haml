@@ -1,11 +1,25 @@
-/ %h3 Welcome
-/ %p
-/   = link_to 'Users:', users_path
-/   = User.count
-/   registered
-
 .container
   .jumbotron
-    %h3 Welcome to Lending Bits
-    =link_to 'Sign up', new_user_registration_path, class: 'btn btn-primary btn-lg btn-block'
-
+    %h1 Welcome to Lending Bits
+    %p.lead Lending Bits is a innovative platform for issuing bond-type securities for small and medium enterprises directly from individual lenders. Lenders can freely trade securities on the Counterparty platform.
+    %p
+      =link_to 'Sign up', new_user_registration_path, class: 'btn btn-block btn-primary'
+  .row
+    .col-lg-6
+      %h2 Companies
+      %p We do appreciate the struggle many SMEs received while dealing with raising funds via traditional finance application.
+      %p Our platform provides better value for SMEs due to:
+      %ul
+        %li access to the global market - receive your funding from US or ASIA
+        %li lower interest rates comparing to the traditional banking loans
+        %li receive funds in multiple currencies
+        %li customise your loan with our loan builder feature
+    .col-lg-6
+      %h2 Lenders
+      %p Individual lenders can invest their funds directly into the loans for  small and medium enterprises bypassing banks. 
+      %p Individuals can drive their own investments, define their portfolio / risk profile etc.
+      %ul
+        %li
+          Ability to invest in multiple companies throughout the world. Invest into Europe, US or Asia - enhance your risk profile via diversification
+        %li Investments in any crypto currency or fiat replicated currency
+        %li Currency risks hedging / payouts in the requested currency

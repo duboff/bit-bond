@@ -9,7 +9,7 @@ class LoansController < ApplicationController
   def create
     @loan = Loan.new params[:loan].permit(:amount, :term, :coupon, :company_name)
     if @loan.save
-      render "loans/show"
+      render '/loans'
     else
       render 'new'
     end
@@ -17,9 +17,11 @@ class LoansController < ApplicationController
 
   def index
     @loans = Loan.all
+    @subscribed = (0..@loans.size).map { |a| (50..75).to_a.sample / 100.0}
   end
 
   def show
-    @loan = Loan.find params[:id] 
+    @loan = Loan.find params[:id]
+    @subscribed = (50..75).to_a.sample
   end
 end

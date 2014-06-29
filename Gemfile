@@ -18,6 +18,8 @@ gem 'simple_form'
 gem 'angellist_api'
 gem 'omniauth'
 gem 'omniauth-angellist'
+gem 'rest_client'
+gem 'rubypython'
 
 group :development do
   gem 'better_errors'
