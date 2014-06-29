@@ -8,16 +8,24 @@ class LoansController < ApplicationController
 
   def create
     @loan = Loan.new params[:loan].permit(:amount, :term, :coupon, :company_name)
+    @loan.subscribed = 0
     if @loan.save
-      render '/loans'
+      redirect_to '/'
     else
       render 'new'
     end
   end
 
+  def update
+    @loan = Loan.find params[:id]
+    @loan.subscribed += 20 if @loan.subscribed < 100
+    @loan.save!
+    redirect_to loan_path(@loan)
+  end
+
   def index
     @loans = Loan.all
-    @subscribed = (0..@loans.size).map { |a| (50..75).to_a.sample / 100.0}
+    @subscribed = (0..@loans.size).map { |a| 0}
   end
 
   def show

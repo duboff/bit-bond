@@ -18,7 +18,7 @@
                 - else
                   = link_to 'Test Company', loan_path(loan)
               %td
-                = "$ #{loan.amount} "
+                = "$ #{number_with_delimiter(@loan.amount, :delimiter => ',')} "
               %td
                 ="#{loan.term} months" 
               %td
