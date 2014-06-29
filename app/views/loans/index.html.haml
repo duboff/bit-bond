@@ -1,0 +1,36 @@
+.container
+  .row
+    - if @loans.any?
+      %table.table.table-hover.table-responsive
+        %thead
+          %tr
+            %th #
+            %th Company
+            %th Bond Amount
+            %th Term
+            %th Coupon
+            %th Subscribed
+        %tbody
+          - @loans.reverse.each do |loan|
+            %tr
+              %td
+                = link_to loan.id, loan_path(loan)
+              %td
+                - if loan.company
+                  = link_to loan.company.name, loan_path(loan)
+                - else
+                  = link_to 'Test Company', loan_path(loan)
+              %td
+                = "$ #{loan.amount} "
+              %td
+                ="#{loan.term} months" 
+              %td
+                = "#{loan.coupon * 100 }%"
+              %td
+                .progress
+                  .progress-bar{role: 'progressbar', style: "width: #{loan.subscribed || 0.6 * 100}%;", aria: {valuenow: "#{loan.subscribed || 0.6 * 100}", valuemin: '0', valuemax: '100'}}
+        / .loan.row
+        /   = link_to "Company: | Amount: #{loan.amount} | Term: #{loan.term} | Coupon: #{loan.coupon}", loan_path(loan)
+    - else
+      %h2 No loans yet
+      = link_to 'Create new loan', new_loan_path, class: 'btn btn-default'

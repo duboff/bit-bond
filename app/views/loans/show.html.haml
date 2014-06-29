@@ -1,4 +1,38 @@
-%h3 Loan
-= @loan.amount
-= @loan.term
-= @loan.coupon
+.container
+  .jumbotron
+    %h3 
+      - if @loan.company
+        = @loan.company.name
+      - else
+        Test Company
+    .row
+      .col-md-6
+        %h4
+          Bond Amount
+      .col-md-6
+
+        %h4
+          = "$ #{ number_with_delimiter(@loan.amount, :delimiter => ',')}"
+    .row
+      .col-md-6
+        %h4
+          Term
+      .col-md-6
+        %h4
+          = "#{@loan.term} Months"
+    .row
+      .col-md-6
+        %h4
+          Coupon
+      .col-md-6
+        %h4
+          = "#{@loan.coupon * 100}%"
+    .row
+      %h3 Subscribed:
+      .progress.progress-show
+        .progress-bar.progress-bar{role: 'progressbar', style: "width: #{@loan.subscribed || 0.6 * 100}%;", aria: {valuenow: "#{@loan.subscribed || 0.6 * 100}", valuemin: '0', valuemax: '100'}}
+          %span
+            = "#{@loan.subscribed || 0.6 * 100}%"
+      .row
+        =link_to 'Buy this bond', '#', class: 'btn btn-success btn-lg'
+
