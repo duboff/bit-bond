@@ -2,6 +2,8 @@ import json
 import requests
 from requests.auth import HTTPBasicAuth
 
+print("HELLO THERE\n")
+
 url = "http://localhost:14000/"
 headers = {'content-type': 'application/json'}
 auth = HTTPBasicAuth('rpc', 'xcppw1234')
@@ -31,6 +33,8 @@ payload = {
 response = requests.post(
   url, data=json.dumps(payload), headers=headers, auth=auth).json()
 print("\nSIGN_TX: ", response)
+
+tx_hex = response["result"]
 
 payload = {
   "method": "broadcast_tx",
